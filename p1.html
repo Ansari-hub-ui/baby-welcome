@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Baby Girl 👶💖</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+      overflow: hidden;
+    }
+
+    /* Loading screen */
+    #loading {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .loader-text {
+      font-size: 22px;
+      margin-top: 10px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0.3; }
+    }
+
+    /* Main content */
+    #content {
+      display: none;
+      text-align: center;
+      padding-top: 80px;
+      color: #444;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #ff4d88;
+    }
+
+    .message {
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff4d88;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🎵 Audio (replace link if you want another lullaby) -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ⏳ Loading Screen -->
+<div id="loading">
+  <h2>Loading happiness...</h2>
+  <div class="loader-text">Initializing love module ❤️</div>
+</div>
+
+<!-- 💖 Main Content -->
+<div id="content">
+
+  <div class="heart">💖</div>
+
+  <h1>Welcome Baby Girl 👶✨</h1>
+
+  <div class="message">
+    Dear little one,<br><br>
+    You are now officially the cutest new member of our universe 🌸<br><br>
+    May your life be filled with joy, love, and endless possibilities.<br><br>
+    — With love, your proud family 💕
+  </div>
+
+  <button onclick="enableMusic()">▶ Play Lullaby</button>
+
+</div>
+
+<script>
+  // Loading screen timer
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("content").style.display = "block";
+
+    // 🎉 Confetti burst on open
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      }, i * 300);
+    }
+
+  }, 2500);
+
+  // 🎵 Music handling (browser requires user click)
+  function enableMusic() {
+    const music = document.getElementById("music");
+    music.play();
+  }
+</script>
+
+</body>
+</html>
